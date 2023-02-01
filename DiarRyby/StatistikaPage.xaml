@@ -9,6 +9,7 @@
       Title="StatistikaPage">
 
     <Grid>
-        
+        <TextBlock Text="Statistyka lovu" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
     </Grid>
 </Page>

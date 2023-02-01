@@ -58,6 +58,8 @@
     <Compile Include="DochazkaPage.xaml.cs">
       <DependentUpon>DochazkaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lov.cs" />
+    <Compile Include="SpravceLovu.cs" />
     <Compile Include="StatistikaPage.xaml.cs">
       <DependentUpon>StatistikaPage.xaml</DependentUpon>
     </Compile>
