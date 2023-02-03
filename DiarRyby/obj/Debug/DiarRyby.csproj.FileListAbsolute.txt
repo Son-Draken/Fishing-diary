@@ -20,3 +20,5 @@ C:\Users\Analytik\source\repos\DiarRyby\DiarRyby\obj\Debug\DochazkaPage.g.cs
 C:\Users\Analytik\source\repos\DiarRyby\DiarRyby\obj\Debug\StatistikaPage.g.cs
 C:\Users\Analytik\source\repos\DiarRyby\DiarRyby\obj\Debug\DochazkaPage.baml
 C:\Users\Analytik\source\repos\DiarRyby\DiarRyby\obj\Debug\StatistikaPage.baml
+C:\Users\Analytik\source\repos\DiarRyby\DiarRyby\obj\Debug\NahledPage.g.cs
+C:\Users\Analytik\source\repos\DiarRyby\DiarRyby\obj\Debug\NahledPage.baml

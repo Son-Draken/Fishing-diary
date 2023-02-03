@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace DiarRyby
 {
@@ -28,20 +30,25 @@ namespace DiarRyby
         }
       
        public SpravceLovu spravceLovu = new SpravceLovu();
-       public DochazkaPage(SpravceLovu spravceLovu)
+       public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
+
+        public DochazkaPage(SpravceLovu spravceLovu)
         {
             InitializeComponent();
             this.spravceLovu = spravceLovu;
             
         }
        
-        //nacte data z page zapis lovu a prida kompletni zapis o lovu do kolekce Lovi
+        //nacte data z page a prida kompletni zapis o lovu do kolekce Lovi
         private void pridejRybuButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 spravceLovu.Pridej(revirTextBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniTextBox.Text,
                 nastrahaTextBox.Text, druhRybyTextBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text));
+                druhRybyTextBox.Clear();
+                pocetKusuTextBox.Clear();
+                delkaRybTextBox.Clear();
                
             }
 
@@ -50,6 +57,19 @@ namespace DiarRyby
                 MessageBox.Show(ex.Message, "Chyba jak fík", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         
+        }
+        //ulozi zapis lovu do databaze  PrehledLovu
+        private void ulozZapisLov_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                obsluhaDatabaze.UlozData(spravceLovu);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Chyba u ukladani dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            
         }
     }
 }

@@ -33,7 +33,6 @@
             <Label Name="datumLabel" Content="Datum"/>
             <DatePicker Name="datumLovuDataPicker"/>
         </StackPanel>
-
         <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="casOdLabel" Content="Čas od:"/>
             <TextBox Name="casOdTextBox" Text="" Width="100" Margin="10,0,0,0"/>
@@ -79,7 +78,7 @@
         <ListBox x:Name="prehledZapisDataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" ItemsSource="{Binding Lovi}"/>
 
 
-        <Button x:Name="ulozZapisLov" Content="Ulož zápis lovu do deníku" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="8"/>
+        <Button x:Name="ulozZapisLov" Content="Ulož zápis lovu do deníku" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="8" Click="ulozZapisLov_Click"/>
 
     </Grid>
 </Page>

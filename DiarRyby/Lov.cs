@@ -35,8 +35,9 @@ namespace DiarRyby
 
 
         public override string ToString()
+       
         {
-            return Datum.ToShortDateString() + " ";
+            return JmenoReviru + Krmeni + Nastraha + DruhRyby;
         }
     }
 }
