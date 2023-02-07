@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace DiarRyby
 {
@@ -20,6 +22,8 @@ namespace DiarRyby
     /// </summary>
     public partial class NahledPage : Page
     {
+
+      
         public NahledPage()
         {
             InitializeComponent();
@@ -28,10 +32,15 @@ namespace DiarRyby
 
         public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
 
+        //nacteni databaze a prirazeni datatablu k datagridu
         private void nactiDataButon_Click(object sender, RoutedEventArgs e)
         {
             obsluhaDatabaze.PripojData();
-           
+            LovDataGrid.DataContext = obsluhaDatabaze.DataTable;
+            
+
         }
+
+            
     }
 }

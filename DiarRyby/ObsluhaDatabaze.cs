@@ -16,10 +16,12 @@ namespace DiarRyby
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = KopieDatabaze; Integrated Security = True";
 
         public SpravceLovu spravceLovu = new SpravceLovu();
-      
-        
-        //pripojeni databaze Lovu
-        public void PripojData()
+         
+        //datatable k uloženi načtené databáze
+        public DataTable DataTable { get; set; }
+
+        //pripojeni databaze prehledLovu a načtení databaze do datatable 
+       public void PripojData()
         {
             using (SqlConnection pripojeni = new SqlConnection(connectionString))
             { 
@@ -27,11 +29,14 @@ namespace DiarRyby
                 string dotaz = "SELECT * FROM PrehledLovu";
                 SqlDataAdapter adapter = new SqlDataAdapter(dotaz, pripojeni);
                 DataSet vysledky = new DataSet();     
-                adapter.Fill(vysledky);
+                adapter.Fill(vysledky,"vysledkyLov");
                 pripojeni.Close();
+               
+                DataTable dataTable = vysledky.Tables["vysledkyLov"];
+                this.DataTable = dataTable;
             }
         }
-
+      //uložení nových záznamů o lovu do databaze 
         public void UlozData(SpravceLovu spravceLovu)
         {
             try
