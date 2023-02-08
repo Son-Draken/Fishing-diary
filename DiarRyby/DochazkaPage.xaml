@@ -30,55 +30,48 @@
         <TextBlock Text="Zápis o lovu" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"/>
 
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="datumLabel" Content="Datum"/>
+            <Label Name="datumLabel" Content="Datum" Width="80"/>
             <DatePicker Name="datumLovuDataPicker"/>
         </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="casOdLabel" Content="Čas od:"/>
-            <TextBox Name="casOdTextBox" Text="" Width="100" Margin="10,0,0,0"/>
-            <Label Name= "casDoLabel" Content= "do:"/>
-            <TextBox Name="casDoTextBox" Text="" Width="100" Margin="10,0,0,0"/>
-        </StackPanel>
+       
 
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="revirLabel" Content="Revír" Target="{Binding ElementName=revirTextBox}" />
-            <TextBox x:Name="revirTextBox" Text="" Width="300" Margin="10,0,0,0"/>
+            <Label Name="revirLabel" Content="Revír" Target="{Binding ElementName=revirTextBox}" Width="70"/>
+            <TextBox Name="revirTextBox" Text="" Width="250" Margin="10,0,0,0"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="cisloReviruLabel" Content="Číslo revíru" Target="{Binding ElementName=cisloReviruTextBox}"/>
-            <TextBox  x:Name="cisloReviruTextBox"  Width="100" Margin="10,0,0,0"/>
+            <Label Name="cisloReviruLabel" Content="Číslo revíru" Target="{Binding ElementName=cisloReviruTextBox}" Width="70"/>
+            <TextBox  Name="cisloReviruTextBox"  Width="100" Margin="10,0,0,0"/>
         </StackPanel>
 
         <StackPanel  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="krmeniLabel" Content="Krmení" Target="{Binding ElementName=krmeniTextBox}"/>
-            <TextBox x:Name="krmeniTextBox" Text="" Width="200" Margin="10,0,0,0"/>
+            <Label Name="krmeniLabel" Content="Krmení" Target="{Binding ElementName=krmeniTextBox}" Width="70"/>
+            <TextBox Name="krmeniTextBox" Text="" Width="250" Margin="10,0,0,0"/>
         </StackPanel>
          
         <StackPanel  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="nastrahaLabel" Content="Nástraha" Target="{Binding ElementName=nastrahaTextBox}"/>
-            <TextBox x:Name="nastrahaTextBox" Text="" Width= "200" Margin="10,0,0,0"/>
+            <Label Name="nastrahaLabel" Content="Nástraha" Target="{Binding ElementName=nastrahaTextBox}" Width="70"/>
+            <TextBox Name="nastrahaTextBox" Text="" Width= "200" Margin="10,0,0,0"/>
         </StackPanel>
 
         <TextBlock Text="Zápis ulovených ryb" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"/>
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="druhLabel" Content="Druh ryby:" Target="{Binding ElementName=druhRybyTextBox}"/>
-            <TextBox x:Name="druhRybyTextBox" Text="" Width= "150" Margin="10,0,10,0"/>
+            <Label Name="druhLabel" Content="Druh ryby:" Target="{Binding ElementName=druhRybyTextBox}" Width="70"/>
+            <TextBox Name="druhRybyTextBox" Text="" Width= "150" Margin="10,0,10,0"/>
             <Label Name="pocetKusuLabel" Content="Počet ulovených ryb: " Target="{Binding ElementName=pocetKusuTextBox}"/>
-            <TextBox x:Name="pocetKusuTextBox" Text="" Width= "100" Margin="10,0,10,0"/>
+            <TextBox Name="pocetKusuTextBox" Text="" Width= "50" Margin="10,0,10,0"/>
             <Label Name="delkaRybLabel" Content="Délka ryby:" Target="{Binding ElementName=delkaRybTextBox}"/>
-            <TextBox x:Name="delkaRybTextBox" Text="" Width= "100" Margin="10,0,10,0"/>
-            <Button x:Name="pridejRybuButton" Content="Přidej úlovek" Margin="10,0,0,0" Click="pridejRybuButton_Click"/>
+            <TextBox Name="delkaRybTextBox" Text="" Width= "50" Margin="10,0,10,0"/>
+            <Button Name="pridejRybuButton" Content="Přidej úlovek" Margin="50,0,0,0" Click="pridejRybuButton_Click"/>
         </StackPanel>
 
         <TextBlock Text="Přidané úlovky" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2"/>
 
+        <ListBox Name="prehledZapisDataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" ItemsSource="{Binding Lovi}"/>
 
-        <ListBox x:Name="prehledZapisDataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" ItemsSource="{Binding Lovi}"/>
-
-
-        <Button x:Name="ulozZapisLov" Content="Ulož zápis lovu do deníku" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="8" Click="ulozZapisLov_Click"/>
+        <Button Name="ulozZapisLov" Content="Ulož zápis lovu do deníku" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="8" Click="ulozZapisLov_Click"/>
 
     </Grid>
 </Page>
