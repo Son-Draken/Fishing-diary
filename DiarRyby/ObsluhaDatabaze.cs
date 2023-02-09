@@ -39,8 +39,7 @@ namespace DiarRyby
       //uložení nových záznamů o lovu do databaze 
         public void UlozData(SpravceLovu spravceLovu)
         {
-            try
-            {
+            
                 //pripojeni localni databaze a nacteni dat do datasetu
                 //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = KopieDatabaze; Integrated Security = True";
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -52,7 +51,7 @@ namespace DiarRyby
                 DataSet ds = new DataSet();
                 adapterLov.Fill(ds, "dataLov");
 
-                MessageBox.Show("databaze pripojena");
+               // MessageBox.Show("databaze pripojena");
 
 
                 // for cyklus dle poctu zadaných ulovku .count v zapisu lovu
@@ -71,15 +70,11 @@ namespace DiarRyby
                     ds.Tables["dataLov"].Rows.Add(newZapis);
                     SqlCommandBuilder cbKategorie = new SqlCommandBuilder(adapterLov);
                     adapterLov.Update(ds.Tables["dataLov"]);
+               
                 }
 
                 connection.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Chyba u nahrani dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
+          
         }
 
     }

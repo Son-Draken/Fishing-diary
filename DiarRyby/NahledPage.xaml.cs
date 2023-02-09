@@ -21,9 +21,7 @@ namespace DiarRyby
     /// Interakční logika pro NahledPage.xaml
     /// </summary>
     public partial class NahledPage : Page
-    {
-
-      
+    {  
         public NahledPage()
         {
             InitializeComponent();
@@ -35,12 +33,16 @@ namespace DiarRyby
         //nacteni databaze a prirazeni datatablu k datagridu
         private void nactiDataButon_Click(object sender, RoutedEventArgs e)
         {
-            obsluhaDatabaze.PripojData();
-            LovDataGrid.DataContext = obsluhaDatabaze.DataTable;
+            try
+            {
+                obsluhaDatabaze.PripojData();
+                LovDataGrid.DataContext = obsluhaDatabaze.DataTable;
+            }
             
-
-        }
-
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Chyba při nahrávání dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }         
+        }        
     }
 }

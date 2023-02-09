@@ -20,15 +20,15 @@ namespace DiarRyby
         public void Pridej(string jmenoReviru,int cisloReviru, DateTime datum, string krmeni, string nastraha, string druhRyby, int pocetRyb, int delkaRyb)
         {
             if (jmenoReviru.Length < 3)
-                throw new ArgumentException("1 je příliš krátké");
+                throw new ArgumentException("Zápis revíru je příliš krátký");
             if (krmeni.Length < 3)
-                throw new ArgumentException("2 je příliš krátké");
+                throw new ArgumentException("Zápis krmení je příliš krátký");
             if (nastraha.Length < 3)
-                throw new ArgumentException("3 je příliš krátké");
+                throw new ArgumentException("Zápis nástraha je příliš krátký");
             if (druhRyby.Length < 3)
-                throw new ArgumentException("3 je příliš krátké");
+                throw new ArgumentException("Zápis druhu ryb je příliš krátký");
             if (cisloReviru < 3)
-                throw new ArgumentException("3 je příliš krátké");
+                throw new ArgumentException("Číslo revíru je příliš krátké");
             Lov lov = new Lov(jmenoReviru, cisloReviru, datum, krmeni, nastraha, druhRyby, pocetRyb, delkaRyb);
             Lovi.Add(lov);
         } 

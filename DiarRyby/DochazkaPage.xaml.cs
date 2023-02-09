@@ -58,12 +58,18 @@ namespace DiarRyby
             }
         
         }
-        //ulozi zapis lovu do databaze  PrehledLovu
+        //ulozi zapis lovu do databaze  PrehledLovu, vyčistí formulář
         private void ulozZapisLov_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 obsluhaDatabaze.UlozData(spravceLovu);
+                spravceLovu.Lovi.Clear();
+                cisloReviruTextBox.Clear();
+                revirTextBox.Clear();
+                krmeniTextBox.Clear();
+                nastrahaTextBox.Clear();
+                
             }
             catch (Exception ex)
             {
