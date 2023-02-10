@@ -26,12 +26,13 @@ namespace DiarRyby
         {
             DataContext = spravceLovu;
             InitializeComponent();
+            druhRybComboBox.DataContext = ryba.druhyRyb;
             
         }
       
        public SpravceLovu spravceLovu = new SpravceLovu();
        public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
-
+       public Ryba ryba = new Ryba();
         public DochazkaPage(SpravceLovu spravceLovu)
         {
             InitializeComponent();
@@ -45,8 +46,8 @@ namespace DiarRyby
             try
             {
                 spravceLovu.Pridej(revirTextBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniTextBox.Text,
-                nastrahaTextBox.Text, druhRybyTextBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text));
-                druhRybyTextBox.Clear();
+                nastrahaTextBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text));
+                druhRybComboBox.Text = "";
                 pocetKusuTextBox.Clear();
                 delkaRybTextBox.Clear();
                
@@ -76,6 +77,9 @@ namespace DiarRyby
                 MessageBox.Show(ex.Message, "Chyba u ukladani dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             
+            
         }
+     
+
     }
 }

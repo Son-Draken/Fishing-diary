@@ -37,7 +37,7 @@ namespace DiarRyby
         public override string ToString()
        
         {
-            return JmenoReviru + Krmeni + Nastraha + DruhRyby;
+            return DruhRyby + " " + DelkaRyby;
         }
     }
 }
