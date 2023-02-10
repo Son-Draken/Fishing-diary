@@ -29,6 +29,10 @@ namespace DiarRyby
                 throw new ArgumentException("Zápis druhu ryb je příliš krátký");
             if (cisloReviru < 3)
                 throw new ArgumentException("Číslo revíru je příliš krátké");
+            if (datum == null)
+                throw new ArgumentException("Nezadal si datum");
+            if (datum > DateTime.Today)
+                throw new ArgumentException("Vidíš do budoucna, že víš co chytíš v následujících dnech?");
             Lov lov = new Lov(jmenoReviru, cisloReviru, datum, krmeni, nastraha, druhRyby, pocetRyb, delkaRyb);
             Lovi.Add(lov);
         } 

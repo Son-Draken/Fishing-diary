@@ -68,7 +68,7 @@ namespace DiarRyby
                     newZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
 
                     ds.Tables["dataLov"].Rows.Add(newZapis);
-                    SqlCommandBuilder cbKategorie = new SqlCommandBuilder(adapterLov);
+                   // SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
                     adapterLov.Update(ds.Tables["dataLov"]);
                
                 }
