@@ -26,6 +26,9 @@ namespace DiarRyby
         {
             InitializeComponent();
             DataContext = obsluhaDatabaze;
+
+           
+           
         }
 
         public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
@@ -43,6 +46,13 @@ namespace DiarRyby
             {
                 MessageBox.Show(ex.Message, "Chyba při nahrávání dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }         
-        }        
+        }
+
+        private void DataGridTextColumn_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DiarRyby"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DochazkaPage">
@@ -31,13 +32,15 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="datumLabel" Content="Datum" Width="80"/>
-            <DatePicker Name="datumLovuDataPicker"/>
+            <DatePicker Name="datumLovuDataPicker" SelectedDate="{x:Static sys:DateTime.Now}"/>
         </StackPanel>
        
 
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="revirLabel" Content="Revír" Target="{Binding ElementName=revirTextBox}" Width="70"/>
-            <TextBox Name="revirTextBox" Text="" Width="250" Margin="10,0,0,0"/>
+            <ComboBox Name="revirComboBox" Width="250" IsEditable="True" ItemsSource="{Binding}" Text="" Margin="10,0,0,0">
+            </ComboBox>
+         
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
@@ -65,12 +68,18 @@
             <TextBox Name="pocetKusuTextBox" Text="" Width= "50" Margin="10,0,10,0"/>
             <Label Name="delkaRybLabel" Content="Délka ryby:" Target="{Binding ElementName=delkaRybTextBox}"/>
             <TextBox Name="delkaRybTextBox" Text="" Width= "50" Margin="10,0,10,0"/>
-            <Button Name="pridejRybuButton" Content="Přidej úlovek" Margin="50,0,0,0" Click="pridejRybuButton_Click"/>
+            <Label Name="ponechanaRybaLabel" Content="Ponechána?" Target="{Binding ElementName=ponechanaLabel}"/>
+            <ComboBox Name="ponechanaRybaCombobox" Width="50" IsEditable="False">
+                <ComboBoxItem IsSelected="True" Content="Ne"/>
+                <ComboBoxItem Content="Ano"/>
+            </ComboBox>
+            <Button Name="pridejRybuButton" Content="Přidej úlovek" Width="80" Margin="20,0,0,0" Click="pridejRybuButton_Click"/>
         </StackPanel>
 
         <TextBlock Text="Přidané úlovky" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2"/>
 
-        <ListBox Name="prehledZapisDataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" ItemsSource="{Binding Lovi}"/>
+        <ListBox Name="prehledZapisDataGrid" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="7" ItemsSource="{Binding Lovi}"/>
+        <ListBox Name="pokusDataGrid" Grid.Column="2" Grid.Row="7" ItemsSource="{Binding}"/>
 
         <Button Name="ulozZapisLov" Content="Ulož zápis lovu do deníku" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="8" Click="ulozZapisLov_Click"/>
 

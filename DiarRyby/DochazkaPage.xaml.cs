@@ -22,31 +22,42 @@ namespace DiarRyby
     /// </summary>
     public partial class DochazkaPage : Page
     {
-       public DochazkaPage()
+
+        public SpravceLovu spravceLovu = new SpravceLovu();
+        public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
+        public RybaRevirSeznam rybaRevirInfo = new RybaRevirSeznam();
+
+        //code behind bindovani datacotextu
+        public DochazkaPage()
         {
-            DataContext = spravceLovu;
             InitializeComponent();
-            druhRybComboBox.DataContext = ryba.druhyRyb;
-            
+            DataContext = spravceLovu;
+            druhRybComboBox.DataContext = rybaRevirInfo.druhyRybList;
+            revirComboBox.DataContext = rybaRevirInfo.RevirList;
+            revirComboBox.DisplayMemberPath = "NazevReviru";
+            pokusDataGrid.DataContext = rybaRevirInfo.RevirList;
+            pokusDataGrid.DisplayMemberPath = "NazevReviru";
+
+            //možnos nastaveni aktualního datumu v datapikru
+           // datumLovuDataPicker.SelectedDate = DateTime.Today; 
+          
         }
-      
-       public SpravceLovu spravceLovu = new SpravceLovu();
-       public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
-       public Ryba ryba = new Ryba();
+
+        //pro bindovani primo v xaml ...pro Lovi
         public DochazkaPage(SpravceLovu spravceLovu)
         {
             InitializeComponent();
-            this.spravceLovu = spravceLovu;
-            
+            this.spravceLovu = spravceLovu; 
         }
+
        
         //nacte data z page a prida kompletni zapis o lovu do kolekce Lovi
         private void pridejRybuButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                spravceLovu.Pridej(revirTextBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniTextBox.Text,
-                nastrahaTextBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text));
+                spravceLovu.Pridej(revirComboBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniTextBox.Text,
+                nastrahaTextBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text), ponechanaRybaCombobox.Text);
                 druhRybComboBox.Text = "";
                 pocetKusuTextBox.Clear();
                 delkaRybTextBox.Clear();
@@ -67,7 +78,7 @@ namespace DiarRyby
                 obsluhaDatabaze.UlozData(spravceLovu);
                 spravceLovu.Lovi.Clear();
                 cisloReviruTextBox.Clear();
-                revirTextBox.Clear();
+                revirComboBox.Text = "";
                 krmeniTextBox.Clear();
                 nastrahaTextBox.Clear();
                 

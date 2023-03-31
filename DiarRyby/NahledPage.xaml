@@ -16,9 +16,18 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-            <Button x:Name="nactiDataButon" Content="Nacti data" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nactiDataButon_Click"/>
-        <DataGrid x:Name="LovDataGrid" Grid.Row="1" Grid.Column="0" IsReadOnly="True" ItemsSource="{Binding}">
-         
+            <Button x:Name="nactiDataButon" Content="Načti data" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nactiDataButon_Click"/>
+        <DataGrid x:Name="LovDataGrid" Grid.Row="1" Grid.Column="0" IsReadOnly="False" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Revír" Binding="{Binding Revir}"/>
+                <DataGridTextColumn Header="Číslo revíru" Binding="{Binding CisloReviru}"/>
+                <DataGridTextColumn Header="Krmení" Binding="{Binding Krmeni}"/>
+                <DataGridTextColumn Header="Nástraha" Binding="{Binding Nastraha}"/>
+                <DataGridTextColumn Header="Ryby" Binding="{Binding DruhRyby}"/>
+                <DataGridTextColumn Header="Počet" Binding="{Binding PocetKusu}"/>
+                <DataGridTextColumn Header="Průměrná délka" Binding="{Binding DelkaRyb}"/>
+            </DataGrid.Columns>
         </DataGrid>
         
 

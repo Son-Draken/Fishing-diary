@@ -63,7 +63,8 @@
       <DependentUpon>NahledPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ObsluhaDatabaze.cs" />
-    <Compile Include="Ryba.cs" />
+    <Compile Include="RybaRevirSeznam.cs" />
+    <Compile Include="RybarskyRevir.cs" />
     <Compile Include="SpravceLovu.cs" />
     <Compile Include="StatistikaPage.xaml.cs">
       <DependentUpon>StatistikaPage.xaml</DependentUpon>

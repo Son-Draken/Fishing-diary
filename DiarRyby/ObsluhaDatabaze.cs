@@ -51,24 +51,25 @@ namespace DiarRyby
                 DataSet ds = new DataSet();
                 adapterLov.Fill(ds, "dataLov");
 
-               // MessageBox.Show("databaze pripojena");
+            // MessageBox.Show("databaze pripojena");
 
 
-                // for cyklus dle poctu zadaných ulovku .count v zapisu lovu
-                for (int i = 0; i < spravceLovu.Lovi.Count; i++)
-                {
-                    DataRow newZapis = ds.Tables["dataLov"].NewRow();
-                    newZapis[1] = spravceLovu.Lovi[i].JmenoReviru;
-                    newZapis[2] = spravceLovu.Lovi[i].CisloReviru;
-                    newZapis[3] = spravceLovu.Lovi[i].Datum;
-                    newZapis[4] = spravceLovu.Lovi[i].Krmeni;
-                    newZapis[5] = spravceLovu.Lovi[i].Nastraha;
-                    newZapis[6] = spravceLovu.Lovi[i].DruhRyby;
-                    newZapis[7] = spravceLovu.Lovi[i].PocetRyby;
-                    newZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
+            // for cyklus dle poctu zadaných ulovku .count v zapisu lovu
+            for (int i = 0; i < spravceLovu.Lovi.Count; i++)
+            {
+                DataRow newZapis = ds.Tables["dataLov"].NewRow();
+                newZapis[1] = spravceLovu.Lovi[i].JmenoReviru;
+                newZapis[2] = spravceLovu.Lovi[i].CisloReviru;
+                newZapis[3] = spravceLovu.Lovi[i].Datum;
+                newZapis[4] = spravceLovu.Lovi[i].Krmeni;
+                newZapis[5] = spravceLovu.Lovi[i].Nastraha;
+                newZapis[6] = spravceLovu.Lovi[i].DruhRyby;
+                newZapis[7] = spravceLovu.Lovi[i].PocetRyby;
+                newZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
+                newZapis[9] = spravceLovu.Lovi[i].PonechanaRyba;
 
                     ds.Tables["dataLov"].Rows.Add(newZapis);
-                   // SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
+                    SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
                     adapterLov.Update(ds.Tables["dataLov"]);
                
                 }
