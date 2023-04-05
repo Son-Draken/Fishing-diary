@@ -9,7 +9,43 @@
       Title="StatistikaPage">
 
     <Grid>
-        <TextBlock Text="Statistyka lovu" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Text="Statistika lovu" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"/>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label Name="PocetDochazekLabel" Content="Počet docházek:" Width="100" Target="{Binding ElementName=PocetDochazekTextBlock}" />
+            <TextBlock Name="PocetDochazekTextBlock" Width="50"/>
+            <Label Name="CelkemtUlovenychRybLabel" Content="Celkem uloveno ryb:" Width="130" Target="{Binding ElementName=CelkemReviruLabel}"/>
+            <TextBlock Name="CelkemUlovenychRybTextBlock" Width="50" Text=""/>
+            <Label Name="CelkemReviruLabel" Content="Celkem navštíveno revírů:" Width="150" Target="{Binding ElementName=CelkemReviruTextBlock}"/>
+            <TextBlock Name="CelkemReviruTextBlock" Width="50"/>
+            <Label Name="CelkemPonechanoRybLabel" Content="Celkem ponecháno ryb:" Width="150" Target="{Binding ElementName=CelkemPonechanoRybTextBlock}"/>
+            <TextBlock Name="CelkemPonechanoRybTextBlock" Width="50"/>
+        </StackPanel>
+
+        <DataGrid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" IsReadOnly="True" AutoGenerateColumns="False">
+            
+            
+        </DataGrid>
+        
+        
+        
+        
+        
     </Grid>
 </Page>

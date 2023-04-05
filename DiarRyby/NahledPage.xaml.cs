@@ -25,10 +25,7 @@ namespace DiarRyby
         public NahledPage()
         {
             InitializeComponent();
-            DataContext = obsluhaDatabaze;
-
-           
-           
+            DataContext = obsluhaDatabaze;  
         }
 
         public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();

@@ -31,7 +31,6 @@ namespace DiarRyby
                 DataSet vysledky = new DataSet();     
                 adapter.Fill(vysledky,"vysledkyLov");
                 pripojeni.Close();
-               
                 DataTable dataTable = vysledky.Tables["vysledkyLov"];
                 this.DataTable = dataTable;
             }
@@ -39,7 +38,6 @@ namespace DiarRyby
       //uložení nových záznamů o lovu do databaze 
         public void UlozData(SpravceLovu spravceLovu)
         {
-            
                 //pripojeni localni databaze a nacteni dat do datasetu
                 //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = KopieDatabaze; Integrated Security = True";
                 SqlConnection connection = new SqlConnection(connectionString);
@@ -50,9 +48,7 @@ namespace DiarRyby
                 adapterLov.SelectCommand = command;
                 DataSet ds = new DataSet();
                 adapterLov.Fill(ds, "dataLov");
-
             // MessageBox.Show("databaze pripojena");
-
 
             // for cyklus dle poctu zadaných ulovku .count v zapisu lovu
             for (int i = 0; i < spravceLovu.Lovi.Count; i++)
@@ -67,15 +63,11 @@ namespace DiarRyby
                 newZapis[7] = spravceLovu.Lovi[i].PocetRyby;
                 newZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
                 newZapis[9] = spravceLovu.Lovi[i].PonechanaRyba;
-
-                    ds.Tables["dataLov"].Rows.Add(newZapis);
-                    SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
-                    adapterLov.Update(ds.Tables["dataLov"]);
-               
+                ds.Tables["dataLov"].Rows.Add(newZapis);
+                SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
+                adapterLov.Update(ds.Tables["dataLov"]);
                 }
-
-                connection.Close();
-          
+             connection.Close();
         }
 
     }

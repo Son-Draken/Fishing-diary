@@ -24,5 +24,10 @@ namespace DiarRyby
             Main.Content = new NahledPage();
             
         }
+
+        private void statistikaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new StatistikaPage();
+        }
     }
 }

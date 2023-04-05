@@ -17,7 +17,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
             <Button x:Name="nactiDataButon" Content="Načti data" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nactiDataButon_Click"/>
-        <DataGrid x:Name="LovDataGrid" Grid.Row="1" Grid.Column="0" IsReadOnly="False" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <DataGrid x:Name="LovDataGrid" Grid.Row="1" Grid.Column="0" IsReadOnly="True" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum, StringFormat=dd.MM.yyyy}"/>
                 <DataGridTextColumn Header="Revír" Binding="{Binding Revir}"/>
