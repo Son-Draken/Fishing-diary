@@ -14,11 +14,17 @@ namespace DiarRyby
     {
         
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = KopieDatabaze; Integrated Security = True";
+       
 
         public SpravceLovu spravceLovu = new SpravceLovu();
          
         //datatable k uloženi načtené databáze
         public DataTable DataTable { get; set; }
+        public int PocetDocházek { get; set; } = 0;
+        public int CelkemUlovenoRyb { get; set; } = 0;
+        public int CelkemReviru { get; set; } = 0;
+        public int CelkemPonechanoRyb { get; set; } = 0;
+
 
         //pripojeni databaze prehledLovu a načtení databaze do datatable 
        public void PripojData()
@@ -69,6 +75,42 @@ namespace DiarRyby
                 }
              connection.Close();
         }
+
+        //načte data pro statistiku 
+        public void PripojDataStatistika()
+        {
+            using (SqlConnection pripojeni = new SqlConnection(connectionString))
+            {
+                pripojeni.Open();
+                string dotaz = "SELECT [Revir], COUNT (DISTINCT Datum) AS [Počet docházek], SUM([PocetKusu]) AS [Počet ulovených ryb]" +
+                               " FROM[PrehledLovu] GROUP BY[Revir] ORDER BY[Počet docházek] DESC,[Počet ulovených ryb] DESC";
+                SqlDataAdapter adapter = new SqlDataAdapter(dotaz, pripojeni);
+                DataSet vysledky = new DataSet();
+                adapter.Fill(vysledky, "statistikaLov");
+                pripojeni.Close();
+                DataTable dataTable = vysledky.Tables["statistikaLov"];
+                this.DataTable = dataTable;
+
+                //dotazy za pomoci LINQ
+
+                int pocetDochazek = dataTable.AsEnumerable().Sum(row => row.Field<int>("Počet docházek"));
+                this.PocetDocházek = pocetDochazek;
+
+                int celkemUlovenoRyb = dataTable.AsEnumerable().Sum(row => row.Field<int>("Počet ulovených ryb"));
+                this.CelkemUlovenoRyb = celkemUlovenoRyb;
+
+                //dotaz za pomocí DataTable Compute metody
+
+                int celkemReviru = Convert.ToInt32(dataTable.Compute("Count(Revir)", string.Empty));
+                this.CelkemReviru = celkemReviru;
+
+                   
+
+            }
+        }
+
+
+
 
     }
 }

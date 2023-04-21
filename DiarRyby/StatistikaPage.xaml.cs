@@ -23,6 +23,17 @@ namespace DiarRyby
         public StatistikaPage()
         {
             InitializeComponent();
+            DataContext = obsluhaDatabaze;
+            obsluhaDatabaze.PripojDataStatistika();
+            StatistikaDataGrid.DataContext = obsluhaDatabaze.DataTable;
+            PocetDochazekTextBlock.DataContext = obsluhaDatabaze.PocetDocházek;
+            CelkemPonechanoRybTextBlock.DataContext = obsluhaDatabaze.CelkemPonechanoRyb;
+            CelkemUlovenychRybTextBlock.DataContext = obsluhaDatabaze.CelkemUlovenoRyb;
+            CelkemReviruTextBlock.DataContext = obsluhaDatabaze.CelkemReviru;
         }
+
+        public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
+
+
     }
 }

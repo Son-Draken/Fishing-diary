@@ -29,16 +29,16 @@
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="PocetDochazekLabel" Content="Počet docházek:" Width="100" Target="{Binding ElementName=PocetDochazekTextBlock}" />
-            <TextBlock Name="PocetDochazekTextBlock" Width="50"/>
+            <TextBlock Name="PocetDochazekTextBlock" Width="50" Text="{Binding}" VerticalAlignment="Center"/>
             <Label Name="CelkemtUlovenychRybLabel" Content="Celkem uloveno ryb:" Width="130" Target="{Binding ElementName=CelkemReviruLabel}"/>
-            <TextBlock Name="CelkemUlovenychRybTextBlock" Width="50" Text=""/>
+            <TextBlock Name="CelkemUlovenychRybTextBlock" Width="50"  Text="{Binding}" VerticalAlignment="Center"/>
             <Label Name="CelkemReviruLabel" Content="Celkem navštíveno revírů:" Width="150" Target="{Binding ElementName=CelkemReviruTextBlock}"/>
-            <TextBlock Name="CelkemReviruTextBlock" Width="50"/>
+            <TextBlock Name="CelkemReviruTextBlock" Width="50"  Text="{Binding}" VerticalAlignment="Center"/>
             <Label Name="CelkemPonechanoRybLabel" Content="Celkem ponecháno ryb:" Width="150" Target="{Binding ElementName=CelkemPonechanoRybTextBlock}"/>
-            <TextBlock Name="CelkemPonechanoRybTextBlock" Width="50"/>
+            <TextBlock Name="CelkemPonechanoRybTextBlock" Width="50"  Text="{Binding}" VerticalAlignment="Center"/>
         </StackPanel>
 
-        <DataGrid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid Name="StatistikaDataGrid" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}">
             
             
         </DataGrid>
