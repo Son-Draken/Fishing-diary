@@ -20,6 +20,7 @@ namespace DiarRyby
          
         //datatable k uloženi načtené databáze
         public DataTable DataTable { get; set; }
+        public DataTable DataTableRyby { get; set; }
         public int PocetDocházek { get; set; } = 0;
         public int CelkemUlovenoRyb { get; set; } = 0;
         public int CelkemReviru { get; set; } = 0;
@@ -82,7 +83,7 @@ namespace DiarRyby
             using (SqlConnection pripojeni = new SqlConnection(connectionString))
             {
                 pripojeni.Open();
-                string dotaz = "SELECT [Revir], COUNT (DISTINCT Datum) AS [Počet docházek], SUM([PocetKusu]) AS [Počet ulovených ryb]" +
+                string dotaz = "SELECT [Revir], COUNT (DISTINCT [Datum]) AS [Počet docházek], SUM([PocetKusu]) AS [Počet ulovených ryb]" +
                                " FROM[PrehledLovu] GROUP BY[Revir] ORDER BY[Počet docházek] DESC,[Počet ulovených ryb] DESC";
                 SqlDataAdapter adapter = new SqlDataAdapter(dotaz, pripojeni);
                 DataSet vysledky = new DataSet();
@@ -90,6 +91,23 @@ namespace DiarRyby
                 pripojeni.Close();
                 DataTable dataTable = vysledky.Tables["statistikaLov"];
                 this.DataTable = dataTable;
+
+                pripojeni.Open();
+                string dotaz2 = "SELECT [DruhRyby],SUM([PocetKusu]) AS[Počet ulovených ryb]" + 
+                    " FROM[PrehledLovu] GROUP BY[DruhRyby]ORDER BY[Počet ulovených ryb] DESC";
+                SqlDataAdapter adapter2 = new SqlDataAdapter(dotaz2, pripojeni);
+                DataSet vysledky2 = new DataSet();
+                adapter2.Fill(vysledky, "statistikaUlovky");
+                pripojeni.Close();
+                DataTable dataTableRyby = vysledky.Tables["statistikaUlovky"];
+                this.DataTableRyby = dataTableRyby;
+
+
+
+
+
+
+
 
                 //dotazy za pomoci LINQ
 
@@ -103,8 +121,6 @@ namespace DiarRyby
 
                 int celkemReviru = Convert.ToInt32(dataTable.Compute("Count(Revir)", string.Empty));
                 this.CelkemReviru = celkemReviru;
-
-                   
 
             }
         }

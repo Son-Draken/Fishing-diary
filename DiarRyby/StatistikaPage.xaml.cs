@@ -20,20 +20,23 @@ namespace DiarRyby
     /// </summary>
     public partial class StatistikaPage : Page
     {
+        string VybranyText { get; set; } = "nic";
         public StatistikaPage()
         {
             InitializeComponent();
             DataContext = obsluhaDatabaze;
             obsluhaDatabaze.PripojDataStatistika();
             StatistikaDataGrid.DataContext = obsluhaDatabaze.DataTable;
+            StatistikaDataGridNahled.DataContext = obsluhaDatabaze.DataTableRyby;
             PocetDochazekTextBlock.DataContext = obsluhaDatabaze.PocetDocházek;
             CelkemPonechanoRybTextBlock.DataContext = obsluhaDatabaze.CelkemPonechanoRyb;
             CelkemUlovenychRybTextBlock.DataContext = obsluhaDatabaze.CelkemUlovenoRyb;
             CelkemReviruTextBlock.DataContext = obsluhaDatabaze.CelkemReviru;
+            ZkusebniPole.DataContext = VybranyText;
         }
 
         public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
 
-
+       
     }
 }
