@@ -40,10 +40,10 @@
         </StackPanel>
 
         <Label Name="PrehledDochazkyLabel" Content="Přehled docházek na revíry" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        <DataGrid Name="StatistikaDataGrid" Grid.Column="1" Grid.Row="5" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
+        <DataGrid Name="StatistikaDataGrid" Grid.Column="1" Grid.Row="5" Margin="10,0,10,0" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
 
         <Label Name="PrehledUlovkuLabel" Content="Přehled ulovených ryb" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        <DataGrid Name="StatistikaDataGridNahled" Grid.Column="2" Grid.Row="5" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
+        <DataGrid Name="StatistikaDataGridNahled" Grid.Column="2" Grid.Row="5" Margin="10,0,10,0" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
 
 
 

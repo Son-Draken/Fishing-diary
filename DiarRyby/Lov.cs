@@ -39,7 +39,7 @@ namespace DiarRyby
         public override string ToString()
        
         {
-            return DruhRyby + " " + DelkaRyby;
+            return DruhRyby + ", délka: " + DelkaRyby + "cm," + " počet: " + PocetRyby + " ks" ;
         }
     }
 }

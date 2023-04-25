@@ -27,7 +27,7 @@ namespace DiarRyby
         public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
         public RybaRevirSeznam rybaRevirInfo = new RybaRevirSeznam();
 
-        //code behind bindovani datacotextu
+        //code behind bindovani datacontextu
         public DochazkaPage()
         {
             InitializeComponent();
