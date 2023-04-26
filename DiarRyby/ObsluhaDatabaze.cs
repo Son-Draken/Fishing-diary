@@ -83,8 +83,9 @@ namespace DiarRyby
             using (SqlConnection pripojeni = new SqlConnection(connectionString))
             {
                 pripojeni.Open();
-                string dotaz = "SELECT [Revir], COUNT (DISTINCT [Datum]) AS [Počet docházek], SUM([PocetKusu]) AS [Počet ulovených ryb]" +
-                               " FROM[PrehledLovu] GROUP BY[Revir] ORDER BY[Počet docházek] DESC,[Počet ulovených ryb] DESC";
+                string dotaz = "SELECT [Revir], " +
+                               "COUNT (DISTINCT [Datum]) AS [Počet docházek], SUM([PocetKusu]) AS [Uloveno ryb], SUM([PonechanaRyba]) AS [Ponecháno ryb] " +
+                               "FROM[PrehledLovu] GROUP BY[Revir] ORDER BY[Počet docházek] DESC,[Uloveno ryb] DESC";
                 SqlDataAdapter adapter = new SqlDataAdapter(dotaz, pripojeni);
                 DataSet vysledky = new DataSet();
                 adapter.Fill(vysledky, "statistikaLov");
@@ -93,8 +94,9 @@ namespace DiarRyby
                 this.DataTable = dataTable;
 
                 pripojeni.Open();
-                string dotaz2 = "SELECT [DruhRyby],SUM([PocetKusu]) AS[Počet ulovených ryb]" + 
-                    " FROM[PrehledLovu] GROUP BY[DruhRyby]ORDER BY[Počet ulovených ryb] DESC";
+                string dotaz2 = "SELECT [DruhRyby], " +
+                                "SUM([PocetKusu]) AS[Chyceno], SUM([PonechanaRyba]) AS [Ponechano] " +
+                                "FROM[PrehledLovu] GROUP BY[DruhRyby]ORDER BY[Chyceno] DESC";
                 SqlDataAdapter adapter2 = new SqlDataAdapter(dotaz2, pripojeni);
                 DataSet vysledky2 = new DataSet();
                 adapter2.Fill(vysledky, "statistikaUlovky");
@@ -102,31 +104,19 @@ namespace DiarRyby
                 DataTable dataTableRyby = vysledky.Tables["statistikaUlovky"];
                 this.DataTableRyby = dataTableRyby;
 
-
-
-
-
-
-
-
                 //dotazy za pomoci LINQ
-
                 int pocetDochazek = dataTable.AsEnumerable().Sum(row => row.Field<int>("Počet docházek"));
                 this.PocetDocházek = pocetDochazek;
-
-                int celkemUlovenoRyb = dataTable.AsEnumerable().Sum(row => row.Field<int>("Počet ulovených ryb"));
+                int celkemUlovenoRyb = dataTable.AsEnumerable().Sum(row => row.Field<int>("Uloveno ryb"));
                 this.CelkemUlovenoRyb = celkemUlovenoRyb;
+                int celkemPonechanoRyb = dataTable.AsEnumerable().Sum(row => row.Field<int>("Ponecháno ryb"));
+                this.CelkemPonechanoRyb = celkemPonechanoRyb;
 
                 //dotaz za pomocí DataTable Compute metody
-
                 int celkemReviru = Convert.ToInt32(dataTable.Compute("Count(Revir)", string.Empty));
                 this.CelkemReviru = celkemReviru;
-
             }
         }
-
-
-
 
     }
 }

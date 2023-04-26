@@ -45,7 +45,7 @@
 
         <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="cisloReviruLabel" Content="Číslo revíru" Target="{Binding ElementName=cisloReviruTextBox}" Width="70"/>
-            <TextBox  Name="cisloReviruTextBox"  Width="100" Margin="10,0,0,0"/>
+            <TextBox  Name="cisloReviruTextBox"  Width="100" Margin="10,0,0,0" />
         </StackPanel>
 
         <StackPanel  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">

@@ -86,7 +86,7 @@ namespace DiarRyby
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Chyba u ukladani dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(ex.Message, "Chyba při ukladani dat", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             
             
