@@ -58,6 +58,9 @@
     <Compile Include="DochazkaPage.xaml.cs">
       <DependentUpon>DochazkaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GrafPage.xaml.cs">
+      <DependentUpon>GrafPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lov.cs" />
     <Compile Include="NahledPage.xaml.cs">
       <DependentUpon>NahledPage.xaml</DependentUpon>
@@ -73,6 +76,10 @@
       <DependentUpon>UvodPage.xaml</DependentUpon>
     </Compile>
     <Page Include="DochazkaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GrafPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

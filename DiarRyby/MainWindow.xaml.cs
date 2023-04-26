@@ -29,5 +29,10 @@ namespace DiarRyby
         {
             Main.Content = new StatistikaPage();
         }
+
+        private void grafyButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new GrafPage();
+        }
     }
 }

@@ -25,6 +25,7 @@
                 <Button x:Name="zapisLovuButton" Height="20" Width="75" Content="Zápis lovu" Click="zapisLovuButton_Click"/>
                 <Button x:Name="nahledButton" Height="20" Width="75" Content="Náhled" Margin="0,10,0,0" Click="nahledButton_Click"/>
                 <Button x:Name="statistikaButton" Height="20" Width="75" Content="Statistika" Margin="0,10,0,0" Click="statistikaButton_Click"/>
+                <Button x:Name="grafyButton"  Height="20" Width="75" Content="Grafy" Margin="0,10,0,0" Click="grafyButton_Click"/>
             </StackPanel>
             <Frame x:Name="Main" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Source="UvodPage.xaml"/>
 
