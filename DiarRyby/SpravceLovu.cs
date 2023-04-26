@@ -17,7 +17,7 @@ namespace DiarRyby
         }
 
         //přidá zápis lovu do kolekce Lovi
-        public void Pridej(string jmenoReviru,int cisloReviru, DateTime datum, string krmeni, string nastraha, string druhRyby, int pocetRyb, int delkaRyb, string ponechanaRyba)
+        public void Pridej(string jmenoReviru,int cisloReviru, DateTime datum, string krmeni, string nastraha, string druhRyby, int pocetRyb, int delkaRyb, int ponechanaRyba)
         {
             if (jmenoReviru.Length < 3)
                 throw new ArgumentException("Zápis revíru je příliš krátký");
@@ -33,6 +33,8 @@ namespace DiarRyby
                 throw new ArgumentException("Nezadal si datum");
             if (datum > DateTime.Today)
                 throw new ArgumentException("Vidíš do budoucna, že víš co chytíš v následujících dnech?");
+            if (ponechanaRyba > pocetRyb)
+                throw new ArgumentException("Bereš si víc ryb než si chytil?");
             Lov lov = new Lov(jmenoReviru, cisloReviru, datum, krmeni, nastraha, druhRyby, pocetRyb, delkaRyb, ponechanaRyba);
             Lovi.Add(lov);
         } 

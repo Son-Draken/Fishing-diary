@@ -20,9 +20,9 @@ namespace DiarRyby
         public string DruhRyby { get; set; }
         public int PocetRyby { get; set; }
         public int DelkaRyby { get; set; }
-        public string PonechanaRyba { get; set; }
+        public int PonechanaRyba { get; set; }
 
-        public Lov(string jmenoReviru, int cisloReviru, DateTime datum, string krmeni, string nastraha, string druhRyby, int pocetRyb, int delkaRyb, string ponechanaRyba)
+        public Lov(string jmenoReviru, int cisloReviru, DateTime datum, string krmeni, string nastraha, string druhRyby, int pocetRyb, int delkaRyb, int ponechanaRyba)
         {
             JmenoReviru = jmenoReviru;
             CisloReviru = cisloReviru;

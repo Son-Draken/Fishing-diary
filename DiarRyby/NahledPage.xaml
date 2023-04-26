@@ -27,6 +27,7 @@
                 <DataGridTextColumn Header="Ryby" Binding="{Binding DruhRyby}"/>
                 <DataGridTextColumn Header="Počet" Binding="{Binding PocetKusu}"/>
                 <DataGridTextColumn Header="Průměrná délka" Binding="{Binding DelkaRyb}"/>
+                <DataGridTextColumn Header="Ponecháno ryb" Binding="{Binding PonechanaRyba}"/>
             </DataGrid.Columns>
         </DataGrid>
         

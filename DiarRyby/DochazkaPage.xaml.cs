@@ -57,10 +57,11 @@ namespace DiarRyby
             try
             {
                 spravceLovu.Pridej(revirComboBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniTextBox.Text,
-                nastrahaTextBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text), ponechanaRybaCombobox.Text);
+                nastrahaTextBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text), int.Parse(ponechanaRybaCombobox.Text));
                 druhRybComboBox.Text = "";
                 pocetKusuTextBox.Clear();
                 delkaRybTextBox.Clear();
+                ponechanaRybaCombobox.Text = "0";
                
             }
 

@@ -37,7 +37,7 @@
        
 
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Name="revirLabel" Content="Revír" Target="{Binding ElementName=revirTextBox}" Width="70"/>
+            <Label Name="revirLabel" Content="Revír" Target="{Binding ElementName=revirComboBox}" Width="70"/>
             <ComboBox Name="revirComboBox" Width="250" IsEditable="True" ItemsSource="{Binding}" Text="" Margin="10,0,0,0">
             </ComboBox>
          
@@ -68,10 +68,10 @@
             <TextBox Name="pocetKusuTextBox" Text="" Width= "50" Margin="10,0,10,0"/>
             <Label Name="delkaRybLabel" Content="Délka ryby:" Target="{Binding ElementName=delkaRybTextBox}"/>
             <TextBox Name="delkaRybTextBox" Text="" Width= "50" Margin="10,0,10,0"/>
-            <Label Name="ponechanaRybaLabel" Content="Ponechána?" Target="{Binding ElementName=ponechanaLabel}"/>
-            <ComboBox Name="ponechanaRybaCombobox" Width="50" IsEditable="False">
-                <ComboBoxItem IsSelected="True" Content="Ne"/>
-                <ComboBoxItem Content="Ano"/>
+            <Label Name="ponechanaRybaLabel" Content="Ponecháno?" Target="{Binding ElementName=ponechanaLabel}"/>
+            <ComboBox Name="ponechanaRybaCombobox" Width="50" IsEditable="True">
+                <ComboBoxItem IsSelected="True" Content="0"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
             <Button Name="pridejRybuButton" Content="Přidej úlovek" Width="80" Margin="20,0,0,0" Click="pridejRybuButton_Click"/>
         </StackPanel>
