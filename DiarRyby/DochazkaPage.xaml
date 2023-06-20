@@ -50,12 +50,12 @@
 
         <StackPanel  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="krmeniLabel" Content="Krmení" Target="{Binding ElementName=krmeniTextBox}" Width="70"/>
-            <TextBox Name="krmeniTextBox" Text="" Width="250" Margin="10,0,0,0"/>
+            <ComboBox Name="krmeniComboBox" Text="" Width="250" IsEditable="True" ItemsSource="{Binding}"  Margin="10,0,0,0" />
         </StackPanel>
          
         <StackPanel  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Name="nastrahaLabel" Content="Nástraha" Target="{Binding ElementName=nastrahaTextBox}" Width="70"/>
-            <TextBox Name="nastrahaTextBox" Text="" Width= "200" Margin="10,0,0,0"/>
+            <ComboBox Name="nastrahaComboBox" Text="" Width= "200" IsEditable="True" ItemsSource="{Binding}"  Margin="10,0,0,0"/>
         </StackPanel>
 
         <TextBlock Text="Zápis ulovených ryb" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"/>

@@ -27,17 +27,21 @@ namespace DiarRyby
         public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
         public RybaRevirSeznam rybaRevirInfo = new RybaRevirSeznam();
 
+
         //code behind bindovani datacontextu
         public DochazkaPage()
         {
             InitializeComponent();
+           
             DataContext = spravceLovu;
             druhRybComboBox.DataContext = rybaRevirInfo.druhyRybList;
             revirComboBox.DataContext = rybaRevirInfo.RevirList;
             revirComboBox.DisplayMemberPath = "NazevReviru";
-            pokusDataGrid.DataContext = rybaRevirInfo.RevirList;
-            pokusDataGrid.DisplayMemberPath = "NazevReviru";
+            obsluhaDatabaze.PripojDataKrmeni();
+            krmeniComboBox.DataContext = obsluhaDatabaze.KrmeniList.Distinct();
+            nastrahaComboBox.DataContext = obsluhaDatabaze.NastrahaList.Distinct();
 
+            //pokusDataGrid.DataContext = obsluhaDatabaze.KrmeniList.Distinct();
             //možnos nastaveni aktualního datumu v datapikru
            // datumLovuDataPicker.SelectedDate = DateTime.Today; 
           
@@ -56,8 +60,8 @@ namespace DiarRyby
         {
             try
             {
-                spravceLovu.Pridej(revirComboBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniTextBox.Text,
-                nastrahaTextBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text), int.Parse(ponechanaRybaCombobox.Text));
+                spravceLovu.Pridej(revirComboBox.Text, int.Parse(cisloReviruTextBox.Text), DateTime.Parse(datumLovuDataPicker.Text), krmeniComboBox.Text,
+                nastrahaComboBox.Text, druhRybComboBox.Text, int.Parse(pocetKusuTextBox.Text), int.Parse(delkaRybTextBox.Text), int.Parse(ponechanaRybaCombobox.Text));
                 druhRybComboBox.Text = "";
                 pocetKusuTextBox.Clear();
                 delkaRybTextBox.Clear();
@@ -80,8 +84,8 @@ namespace DiarRyby
                 spravceLovu.Lovi.Clear();
                 cisloReviruTextBox.Clear();
                 revirComboBox.Text = "";
-                krmeniTextBox.Clear();
-                nastrahaTextBox.Clear();
+                krmeniComboBox.Text = "";
+                nastrahaComboBox.Text = "";
                 
             }
             catch (Exception ex)

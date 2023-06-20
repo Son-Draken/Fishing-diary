@@ -25,7 +25,8 @@ namespace DiarRyby
         public int CelkemUlovenoRyb { get; set; } = 0;
         public int CelkemReviru { get; set; } = 0;
         public int CelkemPonechanoRyb { get; set; } = 0;
-
+        public List<string> KrmeniList {get; set;} 
+        public List<string> NastrahaList {get; set;}
 
         //pripojeni databaze prehledLovu a načtení databaze do datatable 
        public void PripojData()
@@ -60,17 +61,17 @@ namespace DiarRyby
             // for cyklus dle poctu zadaných ulovku .count v zapisu lovu
             for (int i = 0; i < spravceLovu.Lovi.Count; i++)
             {
-                DataRow newZapis = ds.Tables["dataLov"].NewRow();
-                newZapis[1] = spravceLovu.Lovi[i].JmenoReviru;
-                newZapis[2] = spravceLovu.Lovi[i].CisloReviru;
-                newZapis[3] = spravceLovu.Lovi[i].Datum;
-                newZapis[4] = spravceLovu.Lovi[i].Krmeni;
-                newZapis[5] = spravceLovu.Lovi[i].Nastraha;
-                newZapis[6] = spravceLovu.Lovi[i].DruhRyby;
-                newZapis[7] = spravceLovu.Lovi[i].PocetRyby;
-                newZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
-                newZapis[9] = spravceLovu.Lovi[i].PonechanaRyba;
-                ds.Tables["dataLov"].Rows.Add(newZapis);
+                DataRow novyZapis = ds.Tables["dataLov"].NewRow();
+                novyZapis[1] = spravceLovu.Lovi[i].JmenoReviru;
+                novyZapis[2] = spravceLovu.Lovi[i].CisloReviru;
+                novyZapis[3] = spravceLovu.Lovi[i].Datum;
+                novyZapis[4] = spravceLovu.Lovi[i].Krmeni;
+                novyZapis[5] = spravceLovu.Lovi[i].Nastraha;
+                novyZapis[6] = spravceLovu.Lovi[i].DruhRyby;
+                novyZapis[7] = spravceLovu.Lovi[i].PocetRyby;
+                novyZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
+                novyZapis[9] = spravceLovu.Lovi[i].PonechanaRyba;
+                ds.Tables["dataLov"].Rows.Add(novyZapis);
                 SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
                 adapterLov.Update(ds.Tables["dataLov"]);
                 }
@@ -115,6 +116,40 @@ namespace DiarRyby
                 //dotaz za pomocí DataTable Compute metody
                 int celkemReviru = Convert.ToInt32(dataTable.Compute("Count(Revir)", string.Empty));
                 this.CelkemReviru = celkemReviru;
+            }
+        }
+
+        //načtení dat krmeni a nástraha pro možnost výběru při zápisu lovu pomocí dataReadu
+        public void PripojDataKrmeni()
+        {
+            KrmeniList = new List<string>();
+            NastrahaList = new List<string>();
+            using (SqlConnection pripojeni = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    pripojeni.Open();
+                    string dotaz = "SELECT [Krmeni],[Nastraha] FROM PrehledLovu";
+                    SqlCommand prikaz = new SqlCommand(dotaz,pripojeni);
+                    try
+                    {
+                       SqlDataReader readKrmeni = prikaz.ExecuteReader();
+                       while (readKrmeni.Read())
+                            {
+                             KrmeniList.Add(readKrmeni[0].ToString());  
+                             NastrahaList.Add(readKrmeni[1].ToString());
+                            }
+                        //pripojeni.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Chyba jak fík při readu", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+                catch (Exception exe)
+                {
+                    MessageBox.Show(exe.Message, "Chyba jak fík při startu", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
             }
         }
 
