@@ -59,7 +59,7 @@ namespace DiarRyby
             // MessageBox.Show("databaze pripojena");
 
             // for cyklus dle poctu zadaných ulovku .count v zapisu lovu
-            for (int i = 0; i < spravceLovu.Lovi.Count; i++)
+           /* for (int i = 0; i < spravceLovu.Lovi.Count; i++)
             {
                 DataRow novyZapis = ds.Tables["dataLov"].NewRow();
                 novyZapis[1] = spravceLovu.Lovi[i].JmenoReviru;
@@ -72,10 +72,29 @@ namespace DiarRyby
                 novyZapis[8] = spravceLovu.Lovi[i].DelkaRyby;
                 novyZapis[9] = spravceLovu.Lovi[i].PonechanaRyba;
                 ds.Tables["dataLov"].Rows.Add(novyZapis);
-                SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
-                adapterLov.Update(ds.Tables["dataLov"]);
-                }
-             connection.Close();
+             } */
+
+            // foreach cyklus 
+            foreach (var lov in spravceLovu.Lovi)
+            {
+                DataRow novyZapis = ds.Tables["dataLov"].NewRow();
+                novyZapis[1] = lov.JmenoReviru;
+                novyZapis[2] = lov.CisloReviru;
+                novyZapis[3] = lov.Datum;
+                novyZapis[4] = lov.Krmeni;
+                novyZapis[5] = lov.Nastraha;
+                novyZapis[6] = lov.DruhRyby;
+                novyZapis[7] = lov.PocetRyby;
+                novyZapis[8] = lov.DelkaRyby;
+                novyZapis[9] = lov.PonechanaRyba;
+                ds.Tables["dataLov"].Rows.Add(novyZapis);
+            }
+
+
+            SqlCommandBuilder cbZapis = new SqlCommandBuilder(adapterLov);
+            adapterLov.Update(ds.Tables["dataLov"]);
+
+            connection.Close();
         }
 
         //načte data pro statistiku 
