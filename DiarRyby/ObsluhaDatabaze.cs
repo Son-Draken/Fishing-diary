@@ -13,7 +13,7 @@ namespace DiarRyby
     public class ObsluhaDatabaze
     {
         
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = KopieDatabaze; Integrated Security = True";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = FishingDatabase; Integrated Security = True";
        
 
         public SpravceLovu spravceLovu = new SpravceLovu();
@@ -47,7 +47,7 @@ namespace DiarRyby
         public void UlozData(SpravceLovu spravceLovu)
         {
                 //pripojeni localni databaze a nacteni dat do datasetu
-                //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = KopieDatabaze; Integrated Security = True";
+                //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = FishingDatabase; Integrated Security = True";
                 SqlConnection connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
@@ -103,9 +103,9 @@ namespace DiarRyby
             using (SqlConnection pripojeni = new SqlConnection(connectionString))
             {
                 pripojeni.Open();
-                string dotaz = "SELECT [Revir], " +
-                               "COUNT (DISTINCT [Datum]) AS [Počet docházek], SUM([PocetKusu]) AS [Uloveno ryb], SUM([PonechanaRyba]) AS [Ponecháno ryb] " +
-                               "FROM[PrehledLovu] GROUP BY[Revir] ORDER BY[Počet docházek] DESC,[Uloveno ryb] DESC";
+                string dotaz = "SELECT [JmenoReviru], " +
+                               "COUNT (DISTINCT [Datum]) AS [Počet docházek], SUM([PocetRyby]) AS [Uloveno ryb], SUM([PonechanaRyba]) AS [Ponecháno ryb] " +
+                               "FROM[PrehledLovu] GROUP BY[JmenoReviru] ORDER BY[Počet docházek] DESC,[Uloveno ryb] DESC";
                 SqlDataAdapter adapter = new SqlDataAdapter(dotaz, pripojeni);
                 DataSet vysledky = new DataSet();
                 adapter.Fill(vysledky, "statistikaLov");
@@ -115,7 +115,7 @@ namespace DiarRyby
 
                 pripojeni.Open();
                 string dotaz2 = "SELECT [DruhRyby], " +
-                                "SUM([PocetKusu]) AS[Chyceno], SUM([PonechanaRyba]) AS [Ponechano] " +
+                                "SUM([PocetRyby]) AS[Chyceno], SUM([PonechanaRyba]) AS [Ponechano] " +
                                 "FROM[PrehledLovu] GROUP BY[DruhRyby]ORDER BY[Chyceno] DESC";
                 SqlDataAdapter adapter2 = new SqlDataAdapter(dotaz2, pripojeni);
                 DataSet vysledky2 = new DataSet();
@@ -133,7 +133,7 @@ namespace DiarRyby
                 this.CelkemPonechanoRyb = celkemPonechanoRyb;
 
                 //dotaz za pomocí DataTable Compute metody
-                int celkemReviru = Convert.ToInt32(dataTable.Compute("Count(Revir)", string.Empty));
+                int celkemReviru = Convert.ToInt32(dataTable.Compute("Count(JmenoReviru)", string.Empty));
                 this.CelkemReviru = celkemReviru;
             }
         }

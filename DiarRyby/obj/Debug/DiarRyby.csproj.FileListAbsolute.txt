@@ -75,3 +75,20 @@ C:\Users\kovis\Desktop\Rybarsky denik\DiarRyby\obj\Debug\DiarRyby.csproj.Generat
 C:\Users\kovis\Desktop\Rybarsky denik\DiarRyby\obj\Debug\DiarRyby.csproj.CoreCompileInputs.cache
 C:\Users\kovis\Desktop\Rybarsky denik\DiarRyby\obj\Debug\DiarRyby.exe
 C:\Users\kovis\Desktop\Rybarsky denik\DiarRyby\obj\Debug\DiarRyby.pdb
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\bin\Debug\DiarRyby.exe.config
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\bin\Debug\DiarRyby.exe
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\bin\Debug\DiarRyby.pdb
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.csproj.AssemblyReference.cache
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DochazkaPage.g.cs
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\MainWindow.g.cs
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\NahledPage.g.cs
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\StatistikaPage.g.cs
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\UvodPage.g.cs
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\App.g.cs
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby_MarkupCompile.cache
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby_MarkupCompile.lref
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.Properties.Resources.resources
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.csproj.GenerateResource.cache
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.csproj.CoreCompileInputs.cache
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.exe
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.pdb
