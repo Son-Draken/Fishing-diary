@@ -92,3 +92,9 @@ C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.csproj.GenerateReso
 C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.csproj.CoreCompileInputs.cache
 C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.exe
 C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.pdb
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DochazkaPage.baml
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\MainWindow.baml
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\NahledPage.baml
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\StatistikaPage.baml
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\UvodPage.baml
+C:\Users\kovis\Desktop\RybaDenik\DiarRyby\obj\Debug\DiarRyby.g.resources
