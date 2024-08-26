@@ -26,7 +26,7 @@
                 <Button x:Name="previewDataButton" Height="20" Width="75" Content="Náhled" Margin="0,10,0,0" Click="PreviewDataButton_Click"/>
                 <Button x:Name="statisticsButton" Height="20" Width="75" Content="Statistika" Margin="0,10,0,0" Click="StatisticsButton_Click"/>
             </StackPanel>
-            <Frame x:Name="Main" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Source="IntroPage.xaml"/>
+            <Frame x:Name="Main" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Source="Page/IntroPage.xaml"/>
 
         </Grid>
     </Border>
