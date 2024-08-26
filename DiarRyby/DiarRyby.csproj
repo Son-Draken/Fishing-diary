@@ -70,24 +70,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DochazkaPage.xaml.cs">
-      <DependentUpon>DochazkaPage.xaml</DependentUpon>
+    <Compile Include="FishingTripPage.xaml.cs">
+      <DependentUpon>FishingTripPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lov.cs" />
-    <Compile Include="NahledPage.xaml.cs">
-      <DependentUpon>NahledPage.xaml</DependentUpon>
+    <Compile Include="FishingCatch.cs" />
+    <Compile Include="PreviewDataPage.xaml.cs">
+      <DependentUpon>PreviewDataPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ObsluhaDatabaze.cs" />
-    <Compile Include="RybaRevirSeznam.cs" />
-    <Compile Include="RybarskyRevir.cs" />
-    <Compile Include="SpravceLovu.cs" />
-    <Compile Include="StatistikaPage.xaml.cs">
-      <DependentUpon>StatistikaPage.xaml</DependentUpon>
+    <Compile Include="DatabaseHandler.cs" />
+    <Compile Include="FishingAreaFishList.cs" />
+    <Compile Include="FishingArea.cs" />
+    <Compile Include="FishingManager.cs" />
+    <Compile Include="StatisticsPage.xaml.cs">
+      <DependentUpon>StatisticsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UvodPage.xaml.cs">
-      <DependentUpon>UvodPage.xaml</DependentUpon>
+    <Compile Include="IntroPage.xaml.cs">
+      <DependentUpon>IntroPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="DochazkaPage.xaml">
+    <Page Include="FishingTripPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,15 +103,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NahledPage.xaml">
+    <Page Include="PreviewDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatistikaPage.xaml">
+    <Page Include="StatisticsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UvodPage.xaml">
+    <Page Include="IntroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

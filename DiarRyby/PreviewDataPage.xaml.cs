@@ -18,25 +18,25 @@ using System.Data;
 namespace DiarRyby
 {
     /// <summary>
-    /// Interakční logika pro NahledPage.xaml
+    /// Interakční logika pro PreviewDataPage.xaml
     /// </summary>
-    public partial class NahledPage : Page
+    public partial class PreviewDataPage : Page
     {  
-        public NahledPage()
+        public PreviewDataPage()
         {
             InitializeComponent();
-            DataContext = obsluhaDatabaze;  
+            DataContext = databaseHandler;  
         }
 
-        public ObsluhaDatabaze obsluhaDatabaze = new ObsluhaDatabaze();
+        public DatabaseHandler databaseHandler = new DatabaseHandler();
 
         //nacteni databaze a prirazeni datatablu k datagridu
-        private void nactiDataButon_Click(object sender, RoutedEventArgs e)
+        private void LoadDataButon_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                obsluhaDatabaze.PripojData();
-                LovDataGrid.DataContext = obsluhaDatabaze.DataTable;
+                databaseHandler.ConnectData();
+                TripDataGrid.DataContext = databaseHandler.DataTable;
             }
             
             catch (Exception ex)

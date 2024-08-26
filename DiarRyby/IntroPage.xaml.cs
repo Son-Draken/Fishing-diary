@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DiarRyby
 {
     /// <summary>
-    /// Interakční logika pro UvodPage.xaml
+    /// Interaction logic for IntroPage.xaml
     /// </summary>
-    public partial class UvodPage : Page
+    public partial class IntroPage : Page
     {
-        public UvodPage()
+        public IntroPage()
         {
             InitializeComponent();
         }

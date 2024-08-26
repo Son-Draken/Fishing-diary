@@ -3,31 +3,32 @@
 namespace DiarRyby
 {
     /// <summary>
-    /// Interakční logika pro MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = obsluhaDatabaze1;
         }
 
-        private void zapisLovuButton_Click(object sender, RoutedEventArgs e)
+        // Event handler for when the "Fishing Record" button is clicked
+        private void FishingTripButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new DochazkaPage();
+            Main.Content = new FishingTripPage();
         }
 
-        public ObsluhaDatabaze obsluhaDatabaze1 = new ObsluhaDatabaze();
-        private void nahledButton_Click(object sender, RoutedEventArgs e)
+        // Event handler for when the "Preview" button is clicked
+        private void PreviewDataButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new NahledPage();
+            Main.Content = new PreviewDataPage();
             
         }
 
-        private void statistikaButton_Click(object sender, RoutedEventArgs e)
+        // Event handler for when the "Statistics" button is clicked
+        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new StatistikaPage();
+            Main.Content = new StatisticsPage();
         }
 
     
