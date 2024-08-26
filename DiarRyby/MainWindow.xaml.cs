@@ -1,37 +1,33 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 
-
-namespace FishingDiary
-
+namespace DiarRyby
 {
     /// <summary>
-    ///  Interaction logic for MainWindow.xaml
+    /// Interakční logika pro MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = obsluhaDatabaze1;
         }
 
-        // Changes the content of the "Main" frame to the TripFishingPage
-        private void FishingRecordButton_Click(object sender, RoutedEventArgs e)
+        private void zapisLovuButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new TripFishingPage();
+            Main.Content = new DochazkaPage();
         }
 
-        // Changes the content of the "Main" frame to the DatabasePreviewPage
-        private void PreviewButton_Click(object sender, RoutedEventArgs e)
+        public ObsluhaDatabaze obsluhaDatabaze1 = new ObsluhaDatabaze();
+        private void nahledButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new DatabasePreviewPage();
+            Main.Content = new NahledPage();
             
         }
 
-        // Changes the content of the "Main" frame to the StatisticsPage
-        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
+        private void statistikaButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new StatisticsPage();
+            Main.Content = new StatistikaPage();
         }
 
     

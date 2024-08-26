@@ -1,0 +1,54 @@
+﻿<Page x:Class="DiarRyby.StatistikaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiarRyby"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StatistikaPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Statistika lovu" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <TextBlock Name="ZkusebniPole"  Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label Name="PocetDochazekLabel" Content="Počet docházek:" Width="100" Target="{Binding ElementName=PocetDochazekTextBlock}" />
+            <TextBlock Name="PocetDochazekTextBlock" Width="50" Text="{Binding}" VerticalAlignment="Center"/>
+            <Label Name="CelkemtUlovenychRybLabel" Content="Celkem uloveno ryb:" Width="130" Target="{Binding ElementName=CelkemReviruLabel}"/>
+            <TextBlock Name="CelkemUlovenychRybTextBlock" Width="50"  Text="{Binding}" VerticalAlignment="Center"/>
+            <Label Name="CelkemReviruLabel" Content="Celkem navštíveno revírů:" Width="150" Target="{Binding ElementName=CelkemReviruTextBlock}"/>
+            <TextBlock Name="CelkemReviruTextBlock" Width="50"  Text="{Binding}" VerticalAlignment="Center"/>
+            <Label Name="CelkemPonechanoRybLabel" Content="Celkem ponecháno ryb:" Width="150" Target="{Binding ElementName=CelkemPonechanoRybTextBlock}"/>
+            <TextBlock Name="CelkemPonechanoRybTextBlock" Width="50"  Text="{Binding}" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <Label Name="PrehledDochazkyLabel" Content="Přehled docházek na revíry" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <DataGrid Name="StatistikaDataGrid" Grid.Column="1" Grid.Row="5" Margin="10,0,10,0" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
+
+        <Label Name="PrehledUlovkuLabel" Content="Přehled ulovených ryb" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <DataGrid Name="StatistikaDataGridNahled" Grid.Column="2" Grid.Row="5" Margin="10,0,10,0" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
+
+
+
+
+
+
+    </Grid>
+</Page>
