@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DiarRyby.Properties
+namespace FishingDiary.Properties
 {
 
 
