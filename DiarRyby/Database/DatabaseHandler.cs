@@ -226,4 +226,23 @@ namespace DiarRyby
         }
 
     }
+
+    // sql command to create a table - only for test data
+    /*
+    CREATE TABLE [dbo].[FishingTripData] (
+    [Id]          INT           IDENTITY (1, 1) NOT NULL,
+    [AreaName]    NVARCHAR (60) NULL,
+    [AreaNumber]  NVARCHAR (60) NULL,
+    [TripDate]    DATE          NULL,
+    [Bait]        NVARCHAR (60) NULL,
+    [Lure]        NVARCHAR (60) NULL,
+    [FishSpecies] NVARCHAR (60) NULL,
+    [FishCount]   INT           NULL,
+    [FishLength]  INT           NULL,
+    [FishKept]    INT           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+    );
+    */
+
+
 }
