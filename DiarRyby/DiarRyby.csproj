@@ -73,7 +73,7 @@
     <Compile Include="Page\FishingTripPage.xaml.cs">
       <DependentUpon>FishingTripPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FishingData\FishingCatch.cs" />
+    <Compile Include="FishingData\Fishing.cs" />
     <Compile Include="Page\PreviewDataPage.xaml.cs">
       <DependentUpon>PreviewDataPage.xaml</DependentUpon>
     </Compile>

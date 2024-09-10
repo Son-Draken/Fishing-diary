@@ -102,29 +102,29 @@ namespace DiarRyby
                 SqlDataAdapter adapterCaught = new SqlDataAdapter();
                 adapterCaught.SelectCommand = command;
                 DataSet ds = new DataSet();
-                adapterCaught.Fill(ds, "dataLov");
+                adapterCaught.Fill(ds, "fishingRecord");
             // MessageBox.Show("databaze pripojena");
 
             // Use a for loop to iterate over the fishing records and add them to the DataSet
-            /* for (int i = 0; i < fishingManager.FishingCatchs.Count; i++)
+            /* for (int i = 0; i < fishingManager.FishingRecords.Count; i++)
              {
-                 DataRow newRecord = ds.Tables["dataLov"].NewRow();
-                 newRecord[1] = fishingManager.FishingCatchs[i].AreaName;
-                 newRecord[2] = fishingManager.FishingCatchs[i].AreaNumber;
-                 newRecord[3] = fishingManager.FishingCatchs[i].Date;
-                 newRecord[4] = fishingManager.FishingCatchs[i].Bait;
-                 newRecord[5] = fishingManager.FishingCatchs[i].Lure;
-                 newRecord[6] = fishingManager.FishingCatchs[i].FishSpecies;
-                 newRecord[7] = fishingManager.FishingCatchs[i].FishCount;
-                 newRecord[8] = fishingManager.FishingCatchs[i].FishLength;
-                 newRecord[9] = fishingManager.FishingCatchs[i].FishKept;
-                 ds.Tables["dataLov"].Rows.Add(newRecord);
+                 DataRow newRecord = ds.Tables["fishingRecord"].NewRow();
+                 newRecord[1] = fishingManager.FishingRecords[i].AreaName;
+                 newRecord[2] = fishingManager.FishingRecords[i].AreaNumber;
+                 newRecord[3] = fishingManager.FishingRecords[i].Date;
+                 newRecord[4] = fishingManager.FishingRecords[i].Bait;
+                 newRecord[5] = fishingManager.FishingRecords[i].Lure;
+                 newRecord[6] = fishingManager.FishingRecords[i].FishSpecies;
+                 newRecord[7] = fishingManager.FishingRecords[i].FishCount;
+                 newRecord[8] = fishingManager.FishingRecords[i].FishLength;
+                 newRecord[9] = fishingManager.FishingRecords[i].FishKept;
+                 ds.Tables["fishingRecord"].Rows.Add(newRecord);
               } */
 
             // Use a foreach loop to iterate over the fishing records and add them to the DataSet
-            foreach (var lov in fishingManager.FishingCatchs)
+            foreach (var lov in fishingManager.FishingRecords)
             {
-                DataRow newRecord = ds.Tables["dataLov"].NewRow();
+                DataRow newRecord = ds.Tables["fishingRecord"].NewRow();
                 newRecord[1] = lov.AreaName;
                 newRecord[2] = lov.AreaNumber;
                 newRecord[3] = lov.Date;
@@ -134,12 +134,12 @@ namespace DiarRyby
                 newRecord[7] = lov.FishCount;
                 newRecord[8] = lov.FishLength;
                 newRecord[9] = lov.FishKept;
-                ds.Tables["dataLov"].Rows.Add(newRecord);
+                ds.Tables["fishingRecord"].Rows.Add(newRecord);
             }
 
             // Automatically generate SQL commands for the DataAdapter
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(adapterCaught);
-            adapterCaught.Update(ds.Tables["dataLov"]);
+            adapterCaught.Update(ds.Tables["fishingRecord"]);
 
             connection.Close();
         }

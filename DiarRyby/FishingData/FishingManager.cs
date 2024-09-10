@@ -15,18 +15,18 @@ namespace DiarRyby
         /// <summary>
         /// Observable collection to store fishing records.
         /// </summary>
-        public ObservableCollection<FishingCatch>FishingCatchs { get; set; }
+        public ObservableCollection<Fishing>FishingRecords { get; set; }
 
         /// <summary>
         /// Constructor that initializes the collection of fishing records.
         /// </summary>
         public FishingManager()
         {
-            FishingCatchs = new ObservableCollection<FishingCatch>();
+            FishingRecords = new ObservableCollection<Fishing>();
         }
 
         /// <summary>
-        /// Adds a new fishing record to the Lovi collection.
+        /// Adds a new fishing record to the FishingRecords collection.
         /// </summary>
         /// <param name="areaName">Name of the fishing area.</param>
         /// <param name="areaNumber">Number of the fishing area.</param>
@@ -58,9 +58,9 @@ namespace DiarRyby
             if (fishKept > fishCount)
                 throw new ArgumentException("Bereš si víc ryb než si chytil?");
 
-            // Create a new fishing record and add it to the Lovi collection
-            FishingCatch fishingCatch = new FishingCatch(areaName, areaNumber, tripDate, bait, lure, fishSpecies, fishCount, fishLength, fishKept);
-            FishingCatchs.Add(fishingCatch);
+            // Create a new fishing record and add it to the FishingRecords collection
+            Fishing fishing = new Fishing(areaName, areaNumber, tripDate, bait, lure, fishSpecies, fishCount, fishLength, fishKept);
+            FishingRecords.Add(fishing);
         } 
     }
 }

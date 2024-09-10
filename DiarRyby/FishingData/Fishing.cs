@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace DiarRyby
 {
-    public class FishingCatch
 
+    /// <summary>
+    /// The Fishing class represents a various details of a fishing catch.
+    /// </summary>
+    /// 
+    public class Fishing
     {
-        // Properties representing various details of a fishing catch
 
         /// <summary>
         /// The name of the fishing area.
@@ -69,7 +72,7 @@ namespace DiarRyby
         /// <param name="fishCount">The number of fish caught.</param>
         /// <param name="fishLength">The length of the fish caught, in centimeters.</param>
         /// <param name="fishKept">The number of fish kept.</param>
-        public FishingCatch(string areaName, int areaNumber, DateTime date, string bait, string lure, string fishSpecies, int fishCount, int fishLength, int fishKept)
+        public Fishing(string areaName, int areaNumber, DateTime date, string bait, string lure, string fishSpecies, int fishCount, int fishLength, int fishKept)
         {
             AreaName = areaName;
             AreaNumber = areaNumber;

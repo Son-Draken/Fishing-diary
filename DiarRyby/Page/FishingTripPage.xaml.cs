@@ -59,14 +59,14 @@ namespace DiarRyby
         }
 
         // Constructor for data binding directly in XAML, using an existing FishingManager instance.
-        //pro bindovani primo v xaml ...pro FishingCatchs
+        //pro bindovani primo v xaml ...pro FishingRecords
         public FishingTripPage(FishingManager fishingManager)
         {
             InitializeComponent();
             this.fishingManager = fishingManager; 
         }
 
-        // Loads data from the page and adds a complete fishing record to the FishingCatchs collection.
+        // Loads data from the page and adds a complete fishing record to the FishingRecords collection.
         private void AddFishButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -97,7 +97,7 @@ namespace DiarRyby
                 databaseHandler.SaveData(fishingManager);
 
                 // Clear input fields after saving the data.
-                fishingManager.FishingCatchs.Clear();
+                fishingManager.FishingRecords.Clear();
                 areaNumberTextBox.Clear();
                 areaNameComboBox.Text = "";
                 baitComboBox.Text = "";

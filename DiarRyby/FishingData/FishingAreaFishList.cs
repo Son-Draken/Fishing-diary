@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace DiarRyby
 {
+    /// <summary>
+    /// The FishingAreaFishList class represents a information about specific fishing area and fish species.
+    /// It contains name of typically Czech fish and area's.
+    /// </summary>
     public class FishingAreaFishList
     {
-
         /// <summary>
         /// List of fishing areas available for selection.
         /// </summary>
