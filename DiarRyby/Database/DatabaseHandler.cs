@@ -122,18 +122,18 @@ namespace DiarRyby
               } */
 
             // Use a foreach loop to iterate over the fishing records and add them to the DataSet
-            foreach (var lov in fishingManager.FishingRecords)
+            foreach (var fishing in fishingManager.FishingRecords)
             {
                 DataRow newRecord = ds.Tables["fishingRecord"].NewRow();
-                newRecord[1] = lov.AreaName;
-                newRecord[2] = lov.AreaNumber;
-                newRecord[3] = lov.Date;
-                newRecord[4] = lov.Bait;
-                newRecord[5] = lov.Lure;
-                newRecord[6] = lov.FishSpecies;
-                newRecord[7] = lov.FishCount;
-                newRecord[8] = lov.FishLength;
-                newRecord[9] = lov.FishKept;
+                newRecord[1] = fishing.AreaName;
+                newRecord[2] = fishing.AreaNumber;
+                newRecord[3] = fishing.Date;
+                newRecord[4] = fishing.Bait;
+                newRecord[5] = fishing.Lure;
+                newRecord[6] = fishing.FishSpecies;
+                newRecord[7] = fishing.FishCount;
+                newRecord[8] = fishing.FishLength;
+                newRecord[9] = fishing.FishKept;
                 ds.Tables["fishingRecord"].Rows.Add(newRecord);
             }
 
